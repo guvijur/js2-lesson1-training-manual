@@ -27,3 +27,8 @@ let opel = new Car("Astra H", "black", "AT", {volume: 1.8, power: 140});
 // Дополнительно я выведу это в консоль через console.log
 console.log('Объект:');
 console.log(opel);
+// Создам ещё один объект.
+let lada = new Car("Vesta", "white", "MT", {volume: 1.6, power: 106});
+console.log('Объект:');
+console.log(lada);
+// Итого: я создал два экземпляра чертежа, каждый со своими свойствами.
