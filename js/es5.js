@@ -157,9 +157,48 @@ let c2 = new Car1();
 c2.setVin("vin2");
 // Я, признаться, не вижу тут какой-то наглядности. Мне пришлось немного поломать голову,
 // чтобы понять, что тут написано. 
-//выавы
-
-
+// 
+// Теперь вернусь к тому, что я прочитал в интернете и мне это показалось более интересным.
+// Инкапсуляция является одним из ключевых понятий объектно-ориентированного программирования и 
+// представляет сокрытие состояния объекта от прямого доступа извне. По умолчанию все свойства 
+// объектов являются публичными, общедоступными, и мы к ним можем обратиться из любого места программы.
+// Примеры:
+function User(pName, pAge) {
+    this.name = pName;
+    this.age = pAge;
+    this.displayInfo = function(){
+        document.write("Имя: " + this.name + "; возраст: " + this.age);
+    }
+};
+var tom = new User("Том", 26);
+tom.name=34;
+console.log(tom.name);
+// В данном примере name, age и displayInfo доступны для использования из любого места программы.
+// Их можно скрыть, сделав их локальными.
+function User1(name, age) {
+    this.name = name;
+    var _age = age;
+    this.displayInfo = function(){
+        document.write("Имя: " + this.name + "; возраст: " + _age + "<br>");
+    };
+    this.getAge = function() {
+        return _age;
+    }
+    this.setAge = function(age) {
+        if(typeof age === "number" && age >0 && age<110){
+            _age = age;
+        } else {
+            console.log("Недопустимое значение");
+        }
+    }
+}
+ 
+var tom = new User1("Том", 26);
+console.log(tom._age); // undefined - _age - локальная переменная
+console.log(tom.getAge()); // 26
+tom.setAge(32);
+console.log(tom.getAge()); // 32
+tom.setAge("54"); // Недопустимое значение
 
 
 
