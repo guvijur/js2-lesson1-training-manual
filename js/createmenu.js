@@ -61,8 +61,8 @@ let mItems = {0: mItem1, 1: mItem2, 2: mItem3};
 
 let menu = new Menu("menuId", "menuClass", mItems);
 console.log(menu.render());
-let div = document.write(menu.render());
-document.body.innerHTML = menu.render();
+document.write(menu.render());
+//document.body.innerHTML = menu.render();
     
     
     
